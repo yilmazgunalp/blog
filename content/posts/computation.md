@@ -36,3 +36,38 @@ But let us take it slow and think through how you would do this calculation.Unfo
 
 
 But assume you were five years old and were just learning how to add numbers. You would first translate 4 to your four fingers in one hand and 5 to all fingers on the other hand, in computer speak, you would be compiling the numbers to finger code (computers use bytecode) and lastly you would be counting all the fingers you picked one by one, which in programming, called an algorithm and woila! Yes you got it darling!
+
+But some computations are not so straight forward.Their inputs might be more complex than numbers. Here is another piece of code:
+
+“high” + “five”;
+
+This computation sums two words together.Now how do you even sum words together?The confusion you might encounter dear reader is the abyss that seperates human brain from computers. There is no coresponding computation that takes place in human brain. Human brain fires some neurons and performs black magic  called pattern matching and figures out a meaning.Actually when to come to think of it in this manner;  we could say that human brain computes meaning while  computers compute data (In programming we would say that computers compute ‘values’  but outside programming word ‘value’ is as vague as the word ‘meaning’  so better to stay away from it for now).
+
+So by merely glancing at the code above your brain would throw away the semicolon(ah there it is again!) and the + sign and those quoation marks what a nuisamce they are standing in between us and the true meaning and go wild and picture two hands joining together with a jolly loud sound. If you listen closely you might actually even hear a faint clap by merely looking at this computation. There you go here is your computed meaning.
+
+But what about the dull and dark land that lies beyond the abyss.Let me warn you stranger,you shall find no jolly sounds there but an eery humming of machinery churning 0s and 1s  and just that. The humdrum details of this machinery work might put you to sleep and steer you away from the useful fruits of its labour so allow me to jump ahead.
+
+When computed the result of the above code would be this:
+
+“highfive”
+
+You see computers have no imagination nor common sense.You ask them to sum two words and they give you this gibberish.One way to define programming would be that it is  instructing computers to do computations that produce data that human can understand. So in order to produce a human readable result we would have to change our computation to:
+
+“high” + “ “ + “five”;
+
+We told computer to add a space in between words. Programming can be more elagant however.We can formalize this little computation dress it in a suit and place some business cards in its pocket and release  it to the world to mingle with other programs to wheel and deal.
+
+ Fn add_two_words(word1,word2) {
+       return word1 + “ “ + word2;
+}
+
+Now our program has a name and body and it is in business!Its business card says that it is a function which goes by the name “add_two_words”.
+
+Though it is a small town kind of business person.We might have to dress him up a bit more if we want him to look like a big corporate gun who does serious business.Here is a bit more corporate form:
+
+
+ fn add_two_words(word1: String , word2: String)  → String {
+       return word1 + “ “ + word2;
+}
+
+

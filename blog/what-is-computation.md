@@ -1,6 +1,6 @@
 ---
 path: computation
-date: 2020-07-31T11:05:47.583Z
+date: 2020-07-30T10:59:58.759Z
 title: What is computation?
 ---
 Here is a piece of code:
