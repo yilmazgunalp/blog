@@ -7,7 +7,7 @@ Here is a piece of code:
 
 
 
-4 + 5;
+```4 + 5;```
 
 
 
@@ -39,7 +39,7 @@ But assume you were five years old and were just learning how to add numbers. Yo
 
 But some computations are not so straight forward.Their inputs might be more complex than numbers. Here is another piece of code:
 
-“high” + “five”;
+```“high” + “five”;```
 
 This computation sums two words together.Now how do you even sum words together?The confusion you might encounter dear reader is the abyss that seperates human brain from computers. There is no coresponding computation that takes place in human brain. Human brain fires some neurons and performs black magic  called pattern matching and figures out a meaning.Actually when to come to think of it in this manner;  we could say that human brain computes meaning while  computers compute data (In programming we would say that computers compute ‘values’  but outside programming word ‘value’ is as vague as the word ‘meaning’  so better to stay away from it for now).
 
@@ -53,21 +53,23 @@ When computed the result of the above code would be this:
 
 You see computers have no imagination nor common sense.You ask them to sum two words and they give you this gibberish.One way to define programming would be that it is  instructing computers to do computations that produce data that human can understand. So in order to produce a human readable result we would have to change our computation to:
 
-“high” + “ “ + “five”;
+```“high” + “ “ + “five”;```
 
 We told computer to add a space in between words. Programming can be more elagant however.We can formalize this little computation dress it in a suit and place some business cards in its pocket and release  it to the world to mingle with other programs to wheel and deal.
-
- Fn add_two_words(word1,word2) {
+```rust
+fn add_two_words(word1,word2) {
        return word1 + “ “ + word2;
 }
+```
 
-Now our program has a name and body and it is in business!Its business card says that it is a function which goes by the name “add_two_words”.
+Now our program has a name and body and it is in business!Its business card says that it is a function which goes by the name "add_two_words".
 
 Though it is a small town kind of business person.We might have to dress him up a bit more if we want him to look like a big corporate gun who does serious business.Here is a bit more corporate form:
 
-
+```rust
  fn add_two_words(word1: String , word2: String)  → String {
        return word1 + “ “ + word2;
 }
+```
 
 
