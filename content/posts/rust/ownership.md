@@ -86,4 +86,24 @@ What does it mean in practise:
 
 Above a scope is created by curly braces and then a copy and a non-copy variable created. At the end of the scope non-copy type is dropped. **Being dropped means memory allocated for that value is freed.**
 
-Why was copy-type not dropped? It is because non-copy type lives on the **heap** and the copy-type lives on the **stack**. Difference between stack and heap would complicate this simple discussion of ownership but more importantly is beyond my understanding. So I recommend reading [The Book](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html#the-stack-and-the-heap) if you want to dive deeper.
+Why was copy-type not dropped? It is because non-copy type lives on the **heap** and the copy-type lives on the **stack**. Difference between stack and heap would complicate this simple discussion of ownership but more importantly is beyond my expertise. So I recommend reading [The Book](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html#the-stack-and-the-heap) if you want to dive deeper.
+
+### References
+
+If you dont want to worry about ownership or move semantics, you can simply use _references_ instead of the values directly. References allow you to acces the values without ownership. Accessing values this way is called **borrowing** in Rust.
+
+Borrowing is done with _&_
+
+```rust
+fn main() {
+ let non_copy_type = String::from("hello");
+ let one = &non_copy_type;
+ let two = &non_copy_type;
+}
+```
+
+Above is the same code that wouldn't compile. But this time if I use references code will compile. Variables _one_ and _two_ no longer fighting over the ownership of the _non_copy_type_'s value. They are just **borrowing** it. It might be confusing as you might think how can two diffrent things borrow the same value at the same time._Borrowing_ is a misnomer. In Rust it means **accesing** the value to read and/or write.
+
+Read and write references are different. Read references are created as you saw with _&_ and write references with _&mut_.
+
+As you might suspect, in order to avoid one reference accessing a value to read while another one trying to write to it, there are some [rules](https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html#the-rules-of-references) around borrowing.
