@@ -12,13 +12,13 @@ title: Rust ownership
 
 Rust has a unique feature called **ownership** which causes a lot of confusion when learning Rust. Here are some concepts along with examples demonstrating those concepts in practise:
 
-### Copy and Clone types
+### Copy and Move types
 
 Rust types, within the context of ownership, fall into these two categories
 
-**Copy:** bool, char, i8 - i128, u8 - u128, isize, usize, f32, f64, Array, Tuple, Slice, str, Function.
+**Copy:** bool, char, i8 - i128, u8 - u128, isize, usize, f32, f64, Array, Tuple[^1], Slice, str, Function.
 
-**Clone:** All types that implement _std:clone:Clone_ trait.
+**Move:** All that is not Copy.
 
 Being a _Copy type_ basically mean you dont need to worry about ownership. For all other cases keep on reading!
 
@@ -26,12 +26,34 @@ Being a _Copy type_ basically mean you dont need to worry about ownership. For a
 
 Certain operations in the Rust language are said to have _move semantics_ which means those operations cause a _movement of ownership_.
 
-#### The One Operation which have move semantics
+#### Three operations which have move semantics
 
-**Assignment operation** as in
+**1. Assignment operation**
 
 ```rust
 let hello = "world";
+```
+
+**2. Passing a value to a function as paramater**
+
+```rust
+let hello = "world";
+print_word(hello); // calling a function with a value has move semantics
+
+fn print_word(word) {
+    println!("{}", word);
+}
+```
+
+**3. Returning a value from a function**
+
+```rust
+let hello = "world";
+print_word(hello);
+
+fn return_word(word) {
+    word // returning a value has move semantics
+}
 ```
 
 So I said you don't need to worry about ownership for Copy types. Let's see it in action:
@@ -107,3 +129,5 @@ Above is the same code that wouldn't compile. But this time if I use references 
 Read and write references are different. Read references are created as you saw with _&_ and write references with _&mut_.
 
 As you might suspect, in order to avoid one reference accessing a value to read while another one trying to write to it, there are some [rules](https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html#the-rules-of-references) around borrowing.
+
+[^1] Only Tuples of copy types are Copy
