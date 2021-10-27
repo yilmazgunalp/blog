@@ -4,12 +4,6 @@ date: 2021-10-24T10:59:58.759Z
 title: Rust ownership
 ---
 
----
-
-** Disclaimer: This blog post is WIP **
-
----
-
 Rust has a unique feature called **ownership** which causes a lot of confusion when learning Rust. Here are some concepts along with examples demonstrating those concepts in practise:
 
 ### Copy and Move types
